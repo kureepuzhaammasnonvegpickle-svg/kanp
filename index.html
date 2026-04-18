@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="theme-color" content="#5d2e0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <title>Kureepulzha Amma's Non Veg Pickle | Order Online</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <h1 class="logo">Kureepulzha Amma's <span>Non Veg Pickle</span></h1>
+      <button type="button" class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-tagline">Traditional Kerala non-veg pickles, made with love</p>
+        <p class="hero-sub">One tap to select • Easy order & pay • Delivered to your door</p>
+      </div>
+    </section>
+
+    <section class="products container" id="products">
+      <h2 class="section-title">Our Pickles</h2>
+      <div class="product-grid" id="productGrid"></div>
+
+      <h2 class="section-title combo-title">Combo Pack</h2>
+      <p class="combo-desc">250g each of 3 products — great value!</p>
+      <div class="combo-card" id="comboCard">
+        <div class="combo-image">
+          <img src="combo-pack.png" alt="Kureepulzha Amma's Special Combo Offer - Any 3 pack 250g" loading="lazy">
+        </div>
+        <div class="combo-info">
+          <h3>Combo Pack — 250g × 3</h3>
+          <p>Choose any 3 varieties (250g each). Perfect for trying multiple flavours.</p>
+          <p class="combo-price">₹ 999</p>
+          <button type="button" class="btn btn-primary" data-combo="true">Add Combo to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button type="button" class="close-cart" id="closeCart" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal" id="cartSubtotalRow">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹ 0</span>
+      </div>
+      <div class="cart-gst" id="cartGstRow">
+        <span>GST (5%)</span>
+        <span id="cartGst">₹ 0</span>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">₹ 0</strong>
+      </div>
+      <button type="button" class="btn btn-checkout" id="checkoutBtn">Proceed to Buy & Pay</button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Complete Your Order</h2>
+        <button type="button" class="close-modal" id="closeCheckout" aria-label="Close">&times;</button>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <label>
+          <span>Your Name *</span>
+          <input type="text" name="name" required placeholder="Full name">
+        </label>
+        <label>
+          <span>Phone Number *</span>
+          <input type="tel" name="phone" required placeholder="10-digit mobile number">
+        </label>
+        <label>
+          <span>Delivery Address *</span>
+          <textarea name="address" required rows="3" placeholder="House no., area, city, pincode"></textarea>
+        </label>
+        <div class="order-summary-inline" id="orderSummaryInline"></div>
+        <p class="payment-note">You will pay on delivery (Cash/UPI). Order details will be sent to you and to our company.</p>
+        <button type="submit" class="btn btn-submit">Place Order & Confirm</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Success Modal -->
+  <div class="modal success-modal" id="successModal">
+    <div class="modal-content success-content">
+      <div class="success-icon">✓</div>
+      <h2>Order Placed Successfully!</h2>
+      <p>Order details have been sent to your phone number.</p>
+      <p>Our team will contact you for delivery. Payment on delivery (Cash/UPI).</p>
+      <div class="order-details-box" id="orderDetailsBox"></div>
+      <p class="company-note">Order details have been sent to our company number. You can also send a copy to yourself:</p>
+      <button type="button" class="btn btn-primary" id="sendToMyWhatsApp" style="margin-bottom: 0.5rem;">Send order to my WhatsApp</button>
+      <button type="button" class="btn btn-primary" id="closeSuccess">Continue Shopping</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Kureepulzha Amma's Non Veg Pickle</p>
+      <p>For orders & support, call <a href="tel:+917510148020" class="footer-phone">7510148020</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
